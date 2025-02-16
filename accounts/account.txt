@@ -2,4 +2,4 @@ user db
 tcexam/tcexam
 
 default account
-admin/123
+admin/1234
