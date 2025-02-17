@@ -39,9 +39,11 @@
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
  */
 
-class CAS_ProxyChain implements CAS_ProxyChain_Interface
+class CAS_ProxyChain
+implements CAS_ProxyChain_Interface
 {
-    protected $chain = [];
+
+    protected $chain = array();
 
     /**
      * A chain is an array of strings or regexp strings that will be matched
@@ -78,36 +80,36 @@ class CAS_ProxyChain implements CAS_ProxyChain_Interface
                 if (preg_match('/^\/.*\/[ixASUXu]*$/s', $search)) {
                     if (preg_match($search, $proxy_url)) {
                         phpCAS::trace(
-                            "Found regexp " . $search . " matching " . $proxy_url
+                            "Found regexp " .  $search . " matching " . $proxy_url
                         );
                     } else {
                         phpCAS::trace(
-                            "No regexp match " . $search . " != " . $proxy_url
+                            "No regexp match " .  $search . " != " . $proxy_url
                         );
                         $mismatch = true;
                         break;
                     }
-                } elseif (strncasecmp($search, $proxy_url, strlen($search)) == 0) {
-                    phpCAS::trace(
-                        "Found string " . $search . " matching " . $proxy_url
-                    );
                 } else {
-                    phpCAS::trace(
-                        "No match " . $search . " != " . $proxy_url
-                    );
-                    $mismatch = true;
-                    break;
+                    if (strncasecmp($search, $proxy_url, strlen($search)) == 0) {
+                        phpCAS::trace(
+                            "Found string " .  $search . " matching " . $proxy_url
+                        );
+                    } else {
+                        phpCAS::trace(
+                            "No match " .  $search . " != " . $proxy_url
+                        );
+                        $mismatch = true;
+                        break;
+                    }
                 }
             }
-
-            if (! $mismatch) {
+            if (!$mismatch) {
                 phpCAS::trace("Proxy chain matches");
                 return true;
             }
         } else {
             phpCAS::trace("Proxy chain skipped: size mismatch");
         }
-
         return false;
     }
 
@@ -118,8 +120,8 @@ class CAS_ProxyChain implements CAS_ProxyChain_Interface
      *
      * @return bool
      */
-    protected function isSizeValid(array $list)
+    protected function isSizeValid (array $list)
     {
-        return (count($this->chain) === count($list));
+        return (sizeof($this->chain) == sizeof($list));
     }
 }

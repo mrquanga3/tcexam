@@ -1,9 +1,8 @@
 <?php
-
 //============================================================+
 // File name   : tce_export_custom.php
 // Begin       : 2008-11-29
-// Last Update : 2023-11-30
+// Last Update : 2009-11-10
 //
 // Description : Export all users' results using a custom format.
 //
@@ -16,7 +15,7 @@
 //               info@tecnick.com
 //
 // License:
-//    Copyright (C) 2004-2024 Nicola Asuni - Tecnick.com LTD
+//    Copyright (C) 2004-2010  Nicola Asuni - Tecnick.com LTD
 //    See LICENSE.TXT file for more information.
 //============================================================+
 

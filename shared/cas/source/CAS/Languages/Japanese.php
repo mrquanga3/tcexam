@@ -110,3 +110,4 @@ class CAS_Languages_Japanese implements CAS_Languages_LanguageInterface
         return 'サービス `<b>%s</b>\' は利用できません (<b>%s</b>)。';
     }
 }
+?>

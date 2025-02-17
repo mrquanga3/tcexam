@@ -40,6 +40,7 @@
  */
 interface CAS_ProxyChain_Interface
 {
+
     /**
      * Match a list of proxies.
      *
@@ -48,4 +49,5 @@ interface CAS_ProxyChain_Interface
      * @return bool
      */
     public function matches(array $list);
+
 }
